@@ -14,7 +14,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      treeData: treeData
+      treeData: treeData,
+      selectedEntity: null
     };
   }
 
@@ -51,7 +52,10 @@ class App extends Component {
 
     updatedTreeData = updateChildren(updatedTreeData);
 
-    this.setState({ treeData: updatedTreeData });
+    // Log selected entity
+    console.log(`Selected ${payload.type}:`, payload.name);
+
+    this.setState({ treeData: updatedTreeData, selectedEntity: payload });
   }
 
   render = () => {
